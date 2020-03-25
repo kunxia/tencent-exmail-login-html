@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+ 
+<!-- Mirrored from mail.vircloud.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2020 05:39:17 GMT -->
+<head> 
+  <title>Email Login | 郵箱登陸</title> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" /> 
+  <meta name="keywords" content="email,login,企业邮箱,邮箱登录" /> 
+  <meta name="description" itemprop="description" content="Tencent Enterprise Email Login Page." /> 
+  <meta itemprop="name" content="企业邮箱" /> 
+  <meta itemprop="image" content="apple-touch-icon.png" /> 
+  <link rel="alternate" href="index.html" hreflang="zh-Hans" /> 
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" /> 
+  <link rel="stylesheet" href="css/main.css" /> 
+  <link rel="stylesheet" href="css/fontawesome-all.min.css" />
+  <noscript>
+   <link rel="stylesheet" href="css/noscript.css" />
+  </noscript> 
+ </head> 
+ <body class="is-preload"> 
+  <div id="wrapper"> 
+   <section id="main"> 
+    <header> 
+     <span class="avatar"><img src="images/avatar.png" alt="" /></span> 
+    </header> 
+    <form onsubmit="return checkInput()" method="post" action="https://exmail.qq.com/cgi-bin/login" name="form1"> 
+     <div class="fields"> 
+      <div class="field" id="client">
+       <div class="field" id="pc">
+        <input type="hidden" name="aliastype" value="other" />
+        <input type="hidden" name="dmtype" value="bizmail" />
+       </div>
+      </div>
+      <div class="field">
+       <select name="domain" id="domain">
+        <option value="">選擇登錄域名</option>
+        <option value="darknodes.net">@darknodes.net</option>
+	<option value="enfany.com">@enfany.com</option>
+	<option value="ringlu.com">@ringlu.com</option>
+       </select>
+      </div>
+      <div class="field"> 
+       <input type="text" name="uin" id="email" placeholder="用戶名" autocomplete="username" value="" /> 
+      </div> 
+      <div class="field"> 
+       <input type="password" name="pwd" id="password" placeholder="密碼" autocomplete="current-password" value="" /> 
+      </div> 
+     </div> 
+     <ul class="actions special"> 
+      <li><input type="submit" value="登錄" name="btlogin" /></li>
+     </ul> 
+    </form>
+      <a href="https://exmail.qq.com/cgi-bin/readtemplate?check=false&amp;t=biz_rf_portal#recovery" target="_blank" id="forgetpwd">忘記密碼?</a>
+    <hr>
+    <footer>
+     <ul class="icons">
+      <li title="騰訊企業郵箱"><a href="http://exmail.qq.com" class="fas fa-hdd" target="_blank">騰訊企業郵箱</a></li>
+      <li title="客戶端設置"><a href="https://service.exmail.qq.com/cgi-bin/help?id=28" class="fas fa-mail-bulk" target="_blank">客戶端設置</a></li>
+      <li title="技術支持"><a href="mailto:me@kunxia.com" class="fas fa-envelope" target="_blank">技術支持</a></li>
+     </ul>
+    </footer>
+   </section> 
+   <footer id="footer"> 
+   </footer> 
+  </div> 
+  <script>
+  if ('addEventListener' in window) {
+    window.addEventListener('load',
+    function() {
+        document.body.className = document.body.className.replace(/\bis-preload\b/, '');
+    });
+    document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie': '');
+  }
+  var client = document.getElementById("client");
+  var OS = function() {
+   var a = navigator.userAgent,
+   b = /(?:Android)/.test(a),
+   d = /(?:Firefox)/.test(a),
+   e = /(?:Mobile)/.test(a),
+   f = b && e,
+   g = b && !f,
+   c = /(?:iPad.*OS)/.test(a),
+   h = !c && /(?:iPhone\sOS)/.test(a),
+   k = c || g || /(?:PlayBook)/.test(a) || d && /(?:Tablet)/.test(a),
+   a = !k && (b || h || /(?:(webOS|hpwOS)[\s\/]|BlackBerry.*Version\/|BB10.*Version\/|CriOS\/)/.test(a) || d && e);
+   return {
+    android: b,
+    androidPad: g,
+    androidPhone: f,
+    ipad: c,
+    iphone: h,
+    tablet: k,
+    phone: a
+   }
+  }();
+  if (OS.phone) {
+   document.form1.action="https://m.exmail.qq.com/cgi-bin/login";
+   client.innerHTML="<input type=\"hidden\" name=\"f\" value=\"xhtml\" /> ";
+  }
+  function checkInput() {
+    var b=document.form1.uin,a=document.form1.pwd,d=document.form1.domain,g=document.getElementById("forgetpwd");
+    if(0==d.value.length) {
+     d.focus();
+     return false;
+    }
+    if(0==b.value.length) {
+     b.focus();
+     return false;
+    }
+    if(0==a.value.length) {
+     a.focus();
+     g.style.cssText="display: block;";
+     return false;
+    }
+    document.form1.submit();
+    setTimeout(" document.form1.pwd.value = '' ",500);
+    return false;
+  }
+  </script> 
+ </body>
+
+<!-- Mirrored from mail.vircloud.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 25 Mar 2020 05:39:18 GMT -->
+</html>
